@@ -8,10 +8,10 @@ module CarrierWave
       def convert_to_webp(options = {})
         manipulate! do |img|
           img          = yield(img) if block_given?
-          webp_path    = "#{img.path}.webp"
+          webp_path    = "#{path}.webp"
           old_filename = filename
 
-          ::WebP.encode(img.path, webp_path, options)
+          ::WebP.encode(path, webp_path, options)
 
           # XXX: Hacks ahead!
           # I can't find any other way to store an alomost exact copy
